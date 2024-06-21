@@ -31,11 +31,11 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       
       <form class="d-flex" role="search">
         <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-info mx-1 " type="submit">Search</button>
+        <button class="btn btn-outline-info mx-1 text-light" type="submit">Search</button>
       </form>
-      <a  class="btn btn-dark btn-outline-info mx-2" data-bs-toggle="modal" data-bs-target="#loginModal" >Login</a>
-      <a  class="btn btn-dark btn-outline-info mx-1" data-bs-toggle="modal" data-bs-target="#signupModal">Signup</a>
-      <a  class="btn btn-dark btn-outline-info mx-1">Logout</a>
+      <a  class="btn  btn-outline-info  mx-2 text-light" data-bs-toggle="modal" data-bs-target="#loginModal" >Login</a>
+      <a  class="btn  btn-outline-info mx-1 text-light" data-bs-toggle="modal" data-bs-target="#signupModal">Signup</a>
+      <a  class="btn  btn-outline-info  mx-1 text-light">Logout</a>
       
     </div>
   </div>

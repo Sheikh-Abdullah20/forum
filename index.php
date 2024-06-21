@@ -51,7 +51,7 @@ include "loginsystem/db_connect.php";
     <div class="card-body">
         <h5 class="card-title"> <a class= "text-dark" href = "threadlist.php?catid= '. $id .  '"> '.   $catname . '</a></h5>
         <p class="card-text">'. substr( $catdesc, 0, 80) .'...</p>
-        <a href="threadlist.php?catid= '. $id .' " class= "btn btn-dark btn-outline-info">View Threads</a>
+        <a href="threadlist.php?catid= '. $id .' " class= "btn btn-dark btn-outline-info text-light">View Threads</a>
     </div>
     </div>
     </div>';
