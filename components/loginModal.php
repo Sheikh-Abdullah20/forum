@@ -7,12 +7,13 @@
       </div>
       <div class="modal-body bg-dark text-light text-center">
           <h2>Login To Our Website</h2>
-         <form class = 'my-5' method = 'post' action = 'loginsystem/login.php'>
+         <form class = 'my-5' method='post' action='loginsystem/login.php'>
+          
         <div class="mb-4">
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder = 'Enter Your Email' name = 'email' required>
+          <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder = 'Enter Your Email' name = 'loginEmail' required>
         </div>
         <div class="mb-5">
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder = 'Enter Your Password' name = 'password' required>
+          <input type="password" class="form-control" id="loginPassword" placeholder = 'Enter Your Password' name = 'loginPassword' required>
         </div>
     
         <div class="modal-footer bg-dark d-flex justify-content-center border border-dark">

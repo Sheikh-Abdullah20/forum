@@ -1,39 +1,39 @@
 <?php
-
+$showError = 'false'; 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     include "db_connect.php";
 
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $cpassword = $_POST['cpassword'];
+    $email = $_POST['signupemail'];
+    $password = $_POST['signuppassword'];
+    $cpassword = $_POST['signupcpassword'];
 
-
-    $existsSql = "SELECT * FROM users WHERE username = '$username' AND email = '$email'";
+    $existsSql = "SELECT * FROM `forum_users` WHERE  `user_email` = '$email'";
     $result = $con->query($existsSql);
     $num_rows = mysqli_num_rows($result);
-    if($num_rows){
-        echo "User Already Exixts";
-    } 
+    
+    if($num_rows > 0){
+        $showError = "User Already Registered";
+        header("Location: ../index.php?signupsuccess=false&error=$showError");
+        exit();
+    }
     else{
-    if($username && $email && $password && $cpassword){
         if($password == $cpassword){
-            $hash = password_hash($password , PASSWORD_DEFAULT);
-            $sql = "INSERT INTO users(username, email, password) VALUES('$username', '$email' , '$hash')";
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO `forum_users`( user_email, user_password) VALUES('$email', '$hash')";
             $result = $con->query($sql);
-            if($result){
-
-                session_start();
-                $_SESSION['loggedin'] = true;
-                $_SESSION['username'] = $username;
-                header("location: ../index.php");
-            }
-            
+            session_start();
+            $_SESSION['loggedin'] = true;
+            $_SESSION['email'] = $user_email; 
+            header("Location: ../index.php?signupsuccess=true");
+            exit();
         }
+        else{
+            $showError = "Password Do not Match";
+        }
+        header("Location: ../index.php?signupsuccess=false&error=$showError");
+        exit();
     }
 }
-}
-
 
 
 ?>

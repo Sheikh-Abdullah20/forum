@@ -9,19 +9,15 @@
           <h2>Sign-Up To Our Website</h2>
          <form class = 'my-5' method = 'post' action = 'loginsystem/signup.php'>
 
-         <div class="mb-4" >
-          <input type="text" class="form-control" id="username" aria-describedby="username" placeholder = 'Enter Your Username' name = 'username' required>
+        <div class="mb-4">
+          <input type="email" class="form-control" id="signupemail" aria-describedby="emailHelp" placeholder = 'Enter Your Email' name = 'signupemail' required>
+        </div>
+        <div class="mb-4">
+          <input type="password" class="form-control" id="signuppassword" placeholder = 'Enter Your Password' name = 'signuppassword' required>
         </div>
 
         <div class="mb-4">
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder = 'Enter Your Email' name = 'email' required>
-        </div>
-        <div class="mb-4">
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder = 'Enter Your Password' name = 'password' required>
-        </div>
-
-        <div class="mb-4">
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder = 'Confirm Your Password' name = 'cpassword' required>
+          <input type="password" class="form-control" id="signupcpassword" placeholder = 'Confirm Your Password' name = 'signupcpassword' required>
         </div>
     
         <div class="modal-footer bg-dark d-flex justify-content-center border border-dark">
