@@ -11,7 +11,7 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="about.php">About</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -33,12 +33,15 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-info mx-1 " type="submit">Search</button>
       </form>
-      <a href="login.php" class="btn btn-dark btn-outline-info mx-2">Login</a>
-      <a href="signup.php" class="btn btn-dark btn-outline-info mx-1">Signup</a>
+      <a  class="btn btn-dark btn-outline-info mx-2" data-bs-toggle="modal" data-bs-target="#loginModal" >Login</a>
+      <a  class="btn btn-dark btn-outline-info mx-1" data-bs-toggle="modal" data-bs-target="#signupModal">Signup</a>
+      <a  class="btn btn-dark btn-outline-info mx-1">Logout</a>
       
     </div>
   </div>
-</nav>'
+</nav>';
 
+include "loginModal.php";
+include "signupModal.php";
 
 ?>
