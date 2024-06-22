@@ -9,6 +9,10 @@
           <h2>Sign-Up To Our Website</h2>
          <form class = 'my-5' method = 'post' action = 'loginsystem/signup.php'>
 
+         <div class="mb-4">
+          <input type="text" class="form-control" id="signupusername" aria-describedby="signupusername" placeholder = 'Enter Your UserName' name = 'signupusername' required>
+        </div>
+
         <div class="mb-4">
           <input type="email" class="form-control" id="signupemail" aria-describedby="emailHelp" placeholder = 'Enter Your Email' name = 'signupemail' required>
         </div>

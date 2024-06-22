@@ -2,7 +2,7 @@
 $showError = 'false'; 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     include "db_connect.php";
-
+    $username = $_POST['signupusername'];
     $email = $_POST['signupemail'];
     $password = $_POST['signuppassword'];
     $cpassword = $_POST['signupcpassword'];
@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     else{
         if($password == $cpassword){
             $hash = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO `forum_users`( user_email, user_password) VALUES('$email', '$hash')";
+            $sql = "INSERT INTO `forum_users`(username ,user_email, user_password) VALUES('$username','$email', '$hash')";
             $result = $con->query($sql);
             header("Location: ../index.php?signupsuccess=true");
             exit();

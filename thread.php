@@ -24,6 +24,12 @@ $result = $con->query($sql);
 while($rows = mysqli_fetch_assoc($result)){
 $thread_title = $rows['thread_titile'];
 $thread_descriptiion = $rows['thread_description'];
+$thread_user_id = $rows['thread_user_id'];
+
+$sql2 = "SELECT username FROM forum_users WHERE user_id = '$thread_user_id'";
+$result2 = $con->query($sql2);
+$rows2 = mysqli_fetch_assoc($result2);
+$posted_by = $rows2['username'];
 }
 ?>
 
@@ -31,9 +37,11 @@ $thread_descriptiion = $rows['thread_description'];
   $showAlert = false; 
   if($_SERVER["REQUEST_METHOD"] == "POST"){
     include "loginsystem/db_connect.php";
-    $id = $_GET['threadid'];
-    $user_id = $_SESSION['user_id'];
+  $id = $_GET['threadid'];
+  $user_id = $_SESSION['user_id'];
   $comment = $con->real_escape_string($_POST['comment']);
+  // $comment = ;
+  // $comment = ;
   $sql = "INSERT INTO comments(comment_content , thread_id , comment_by) VALUES('$comment',$id, '$user_id' )";
   $result = $con->query($sql);
   $showAlert = true;
@@ -58,6 +66,7 @@ $thread_descriptiion = $rows['thread_description'];
                 offensive or illegal material. Inappropriate content is anything that may offend or is not relevant to
                 the forum. Don't post any advertisements or solicitations, however much you believe in the service or
                 product.</p>
+                <p>Posted By: <b><?php echo $posted_by ?></b></p>    
         </div>
     </div>
 

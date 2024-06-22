@@ -58,11 +58,12 @@ while($rows = mysqli_fetch_assoc($result)){
  
 $catname = $rows['category_name'];
 $catdesc = $rows['category_description'];
+
 }
 ?>
 
     <div class="container my-3 ">
-        <div class="bg-light p-5 rounded-lg ">
+        <div class="bg-dark text-light p-5 rounded-lg ">
             <h1 class="display-4">Welcome to <?php echo $catname ?> Forum</h1>
             <p class="lead"> <?php echo $catdesc ?> </p>
             <hr class="my-4">
@@ -71,6 +72,7 @@ $catdesc = $rows['category_description'];
                 offensive or illegal material. Inappropriate content is anything that may offend or is not relevant to
                 the forum. Don't post any advertisements or solicitations, however much you believe in the service or
                 product.</p>
+    
         </div>
 
 
