@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      if(password_verify($password, $rows['user_password'])){
        session_start();
        $_SESSION['loggedin'] = true;
-       $_SESSION['email'] = $user_email;
+       $_SESSION['email'] = $email;
        header("location: ../index.php?loginsuccess=true");
        exit();
      }

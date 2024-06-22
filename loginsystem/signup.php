@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             $result = $con->query($sql);
             session_start();
             $_SESSION['loggedin'] = true;
-            $_SESSION['email'] = $user_email; 
+            $_SESSION['email'] = $email; 
             header("Location: ../index.php?signupsuccess=true");
             exit();
         }
