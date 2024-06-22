@@ -42,18 +42,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
        session_start();
        $_SESSION['loggedin'] = true;
        $_SESSION['email'] = $email;
+       $_SESSION['user_id'] = $rows['user_id'];
        header("location: ../index.php?loginsuccess=true");
        exit();
      }
      else{
        $showError = 'Invalid Credentials';
        header("Location: ../index.php?loginsuccess=false&error=$showError");
+       exit();
      }
    }
   }
   else{
     $showError = 'User Not Found';
     header("Location: ../index.php?loginsuccess=false&error=$showError");
+    exit();
   }
     
  }

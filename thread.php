@@ -32,8 +32,9 @@ $thread_descriptiion = $rows['thread_description'];
   if($_SERVER["REQUEST_METHOD"] == "POST"){
     include "loginsystem/db_connect.php";
     $id = $_GET['threadid'];
+    $user_id = $_SESSION['user_id'];
   $comment = $con->real_escape_string($_POST['comment']);
-  $sql = "INSERT INTO comments(comment_content , thread_id) VALUES('$comment',$id)";
+  $sql = "INSERT INTO comments(comment_content , thread_id , comment_by) VALUES('$comment',$id, '$user_id' )";
   $result = $con->query($sql);
   $showAlert = true;
     if($showAlert){
@@ -109,26 +110,20 @@ $noresult = false;
 $id = $rows['comment_id'];
 $content = $rows['comment_content'];
 $comment_time = $rows['comment_time'];
-echo'
+$thread_user_id = $rows['comment_by'];
 
+$sql2 = "SELECT user_email FROM forum_users WHERE user_id = '$thread_user_id'";
+$result2 = $con->query($sql2);
+$rows2 = mysqli_fetch_assoc($result2);
+echo'
 <div class="media my-3">
   <img class="align-self-start mr-3" src="images/user.png" width="50px" alt="Generic placeholder image">
-  <div class="media-body">';
-  if(isset($_SESSION['email']) && $_SESSION['email'] == true){
-  echo  '<h5 class="mt-0">'.$_SESSION['email'].'</h5>';
-}
-else{
-  echo  '<h5 class="mt-0">@User</h5>';
-}
-  echo '<p class="mb-0">'.$comment_time.'</p>
+  <div class="media-body">
+  <h5 class="mt-0">'.$rows2['user_email'].'</h5>
+    <p class="mb-0">'.$comment_time.'</p>
     <p >'.$content.'</p>
   </div>
-</div>
-
-
-
-
-';
+</div>';
 }
 echo '</div>';
 if($noresult){
@@ -149,7 +144,7 @@ if($noresult){
 
 
 
-        <?php include "components/footer.php";?>
+  <?php include "components/footer.php";?>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">

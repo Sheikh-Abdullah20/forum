@@ -21,9 +21,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO `forum_users`( user_email, user_password) VALUES('$email', '$hash')";
             $result = $con->query($sql);
-            session_start();
-            $_SESSION['loggedin'] = true;
-            $_SESSION['email'] = $email; 
             header("Location: ../index.php?signupsuccess=true");
             exit();
         }

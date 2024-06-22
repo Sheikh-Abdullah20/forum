@@ -27,8 +27,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   $description = $_POST['description'];
   $showalret = false;
   $id = $_GET['catid'];
+  $user_id = $_SESSION['user_id'];
   if($title && $description){
-    $sql = "INSERT INTO `thread` (`thread_titile`, `thread_description`, `thread_cat_id`, `thread_user_id`) VALUES ('$title',  '$description', '$id', '0')";
+    $sql = "INSERT INTO `thread` (`thread_titile`, `thread_description`, `thread_cat_id`, `thread_user_id`) VALUES ('$title',  '$description', '$id', $user_id)";
     $result = $con->query($sql);
     $showalret = true;
     if(!$result){
@@ -77,8 +78,6 @@ $catdesc = $rows['category_description'];
         <!-- handle if session is set than show this  -->
         <?php
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
-
-
 echo '
 <div class="row my-4"> 
   <h1>Start Disscusstion</h1>
@@ -130,20 +129,18 @@ $noresult = false;
 $thread_id = $rows['thread_id'];
 $thread_title = $rows['thread_titile'];
 $thread_description = $rows['thread_description'];
+$thread_user_id = $rows['thread_user_id'];
+$sql2 = "SELECT user_email FROM forum_users WHERE user_id = $thread_user_id";
+$result2 = $con->query($sql2);
+$rows = mysqli_fetch_assoc($result2);
 
 echo'
 <div class="col-md-12">
   <div class="media my-3">
   <img class="align-self-start mr-3" src="images/user.png" width="50px" alt="Generic placeholder image">
-  <div class="media-body">';
-  if(isset($_SESSION['email']) && $_SESSION['email'] == true){
-    echo'<h5 class="mt-0">'.$_SESSION['email'].'</h5>';
-  }
-  else{
-   echo 
-   '<h5 class="mt-0">@User</h5>';
-  }
-    echo'<h5 class="mb-2"> <a class="text-dark" href= thread.php?threadid='.$thread_id.'>'.$thread_title.'</a> </h5>
+  <div class="media-body">
+    <h5 class="mt-0">'.$rows['user_email'].'</h5>
+    <h5 class="mb-2"> <a class="text-dark" href= thread.php?threadid='.$thread_id.'>'.$thread_title.'</a> </h5>
     <h6>'.$thread_description.'</h6>
   </div>
 </div>

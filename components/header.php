@@ -85,7 +85,7 @@ include "signupModal.php";
 if(isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == 'true'){
   echo '
     <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
-  <strong>success</strong> Account Has Been Created.!
+  <strong>success</strong> Account Has Been Created. Now You can Login!
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
   ';
