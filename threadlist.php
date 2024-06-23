@@ -9,12 +9,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Forum - Coding</title>
+    <style>
+      #container{
+        min-height: 95vh;
+      }
+    </style>
 </head>
 
 <body>
     <?php
-include "components/header.php";
 include "loginsystem/db_connect.php";
+include "components/header.php";
 
 ?>
 
@@ -62,7 +67,7 @@ $catdesc = $rows['category_description'];
 }
 ?>
 
-    <div class="container my-3 ">
+    <div class="container my-3" id="container">
         <div class="bg-dark text-light p-5 rounded-lg ">
             <h1 class="display-4">Welcome to <?php echo $catname ?> Forum</h1>
             <p class="lead"> <?php echo $catdesc ?> </p>
@@ -72,7 +77,6 @@ $catdesc = $rows['category_description'];
                 offensive or illegal material. Inappropriate content is anything that may offend or is not relevant to
                 the forum. Don't post any advertisements or solicitations, however much you believe in the service or
                 product.</p>
-    
         </div>
 
 
@@ -132,7 +136,7 @@ $thread_id = $rows['thread_id'];
 $thread_title = $rows['thread_titile'];
 $thread_description = $rows['thread_description'];
 $thread_user_id = $rows['thread_user_id'];
-$sql2 = "SELECT user_email FROM forum_users WHERE user_id = $thread_user_id";
+$sql2 = "SELECT username FROM forum_users WHERE user_id = $thread_user_id";
 $result2 = $con->query($sql2);
 $rows = mysqli_fetch_assoc($result2);
 
@@ -141,7 +145,7 @@ echo'
   <div class="media my-3">
   <img class="align-self-start mr-3" src="images/user.png" width="50px" alt="Generic placeholder image">
   <div class="media-body">
-    <h5 class="mt-0">'.$rows['user_email'].'</h5>
+    <h5 class="mt-0">'.$rows['username'].'</h5>
     <h5 class="mb-2"> <a class="text-dark" href= thread.php?threadid='.$thread_id.'>'.$thread_title.'</a> </h5>
     <h6>'.$thread_description.'</h6>
   </div>

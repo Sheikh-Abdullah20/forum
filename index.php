@@ -6,14 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+        <style>
+            .carousel-item {
+        max-height: 100%;
+        height: 100%;
+}
+.carousel-item img{
+
+}
+#carousel{
+    height: 90vh;
+}
+        </style>
     <title>Forum - Coding</title>
 </head>
 
 <body>
     <?php
-include "components/header.php";
 include "loginsystem/db_connect.php";
+include "components/header.php";
 ?>
 
 <?php
@@ -29,20 +40,31 @@ $image_path3 = "images/3.jpg";
 $image_url3 = $image_path3 . "?" . time();
 echo'
     <div class="container-fluid">
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner" style="height: 80vh; ">
-                <div class="carousel-item active">
-                    <img src="'.$image_url1 .'" class="d-block w-100 img-fluid" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="'.$image_url2.'" class="d-block w-100 img-fluid" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="'.$image_url3.'" class="d-block w-100 img-fluid" alt="...">
-                </div>
-            </div>
-        </div>
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner" id="carousel">
+    <div class="carousel-item active">
+   <img src="'.$image_url2 .'" class="d-block w-100 img-fluid" alt="...">
+    </div>
+    <div class="carousel-item">
+       <img src="'.$image_url3.'" class="d-block w-100 img-fluid" alt="...">
+    </div>
+    <div class="carousel-item">
+        <img src="'.$image_url1.'" class="d-block w-100 img-fluid" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        
     </div>';
+
+    
 
     ?>
 

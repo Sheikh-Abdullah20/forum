@@ -1,8 +1,8 @@
 
-<div class="container-fluid bg-dark text-light  ">
+<div class="container-fluid bg-dark text-light py-3  ">
     <footer>
         <p class="text-center mb-0 mt-4">
-           This forum All Rights Reserved by Abdullah | till 2035 
+        © 2025 Forum All Rights Reserved.
         </p>
     </footer>
 </div>

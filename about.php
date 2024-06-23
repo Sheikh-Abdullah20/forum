@@ -8,6 +8,7 @@
 </head>
 <body>
 <?php
+include "loginsystem/db_connect.php";
 include "components/header.php";?>
 
 
