@@ -31,12 +31,11 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           Top Categories
         </a>
         <ul class="dropdown-menu">';
-        $sql = "SELECT category_name , category_id FROM categories LIMIT 3";
+        $sql = "SELECT category_name , category_id FROM categories LIMIT 4";
         $result = $con->query($sql);
         while($rows = mysqli_fetch_assoc($result)){
         echo
-          '<li><a class="dropdown-item" href="threadlist.php?catid='.$rows['category_id'] .'">'.$rows['category_name'].'</a></li>';
-          
+          '<li><a class="dropdown-item" href="threadlist.php?catid='.$rows['category_id'] .'">'.$rows['category_name'].'</a></li>'; 
         }
        echo '</ul>
       </li>
