@@ -8,7 +8,7 @@
       <div class="modal-body bg-dark text-light text-center">
           <h2>Login To Our Website</h2>
          <form class = 'my-5' method='post' action='loginsystem/login.php'>
-          
+
         <div class="mb-4">
           <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder = 'Enter Your Email' name = 'loginEmail' required>
         </div>
@@ -23,6 +23,6 @@
       </form>
 
       </div>
-    </div>
+    </div>  
   </div>
 </div>
